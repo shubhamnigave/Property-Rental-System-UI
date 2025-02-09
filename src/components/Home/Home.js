@@ -1,87 +1,139 @@
-import React from "react";
-// import Navbar from "../Navbar/Navbar";
-import { FaSearch, FaBuilding, FaUsers, FaHandshake, FaArrowRight } from "react-icons/fa";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./Home.css"; 
+import React from 'react';
 
-const Home = () => {
+const HomePage = () => {
   return (
-    <>
-      {/* <Navbar /> */}
-      
-      {/* Hero Section */}
-      <section className="hero-section d-flex align-items-center text-white text-center">
-        <div className="container">
-          <h1 className="display-3 fw-bold">Find Your Perfect Home</h1>
-          <p className="lead">Explore premium properties with ease and confidence.</p>
-          <div className="input-group search-bar mx-auto">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search by city, landmark..."
+    <div
+      style={{
+        background: 'linear-gradient(to bottom, #f8f9fa, #e9ecef)',
+        minHeight: '100vh',
+      }}
+    >
+      {/* Carousel Section */}
+      <div id="homepageCarousel" className="carousel slide" data-bs-ride="carousel">
+        <div className="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#homepageCarousel"
+            data-bs-slide-to="0"
+            className="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#homepageCarousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#homepageCarousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img
+             height={600}
+             width={1920}
+              src='../../../images/slide1.jpeg'
+              className="d-block w-100"
+              alt="Slide 1"
             />
-            <button className="btn btn-warning">
-              <FaSearch /> Search
+          </div>
+          <div className="carousel-item">
+            <img
+            height={600}
+            width={1920}
+              src="../../../images/slide2.jpeg"
+              className="d-block w-100"
+              alt="Slide 2"
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+             height={600}
+             width={1920}
+              src="../../../images/slide3.jpeg"
+              className="d-block w-100"
+              alt="Slide 3"
+            />
+          </div>
+        </div>
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#homepageCarousel"
+          data-bs-slide="prev"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#homepageCarousel"
+          data-bs-slide="next"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      {/* Main Content */}
+      <div
+        className="container text-center mt-5"
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          padding: '2rem',
+          borderRadius: '8px',
+          maxWidth: '800px',
+          marginBottom: '2rem',
+        }}
+      >
+        <h1 className="fw-bold mb-3 text-dark">Find Your Perfect Rental in Pune</h1>
+
+        {/* Search Section */}
+        <div className="d-flex justify-content-center my-3">
+          <input
+            type="text"
+            className="form-control w-50 p-2 shadow-sm border-secondary"
+            placeholder="Search for locality, landmark, or project"
+          />
+          <button className="btn btn-secondary ms-2 px-4">Search</button>
+        </div>
+
+        {/* Popular Rental Areas */}
+        <h4 className="fw-semibold mt-4 text-secondary">Popular Rental Areas</h4>
+        <div className="d-flex flex-wrap justify-content-center gap-3 mt-3">
+          {['Wakad', 'Baner', 'Kothrud', 'Hadapsar', 'Kharadi'].map((area) => (
+            <span
+              key={area}
+              className="badge bg-light text-dark p-3 shadow-sm border border-secondary"
+            >
+              {area}
+            </span>
+          ))}
+        </div>
+
+        {/* Curated Rental Picks */}
+        <div className="d-flex flex-column align-items-center mt-5">
+          <h4 className="fw-semibold text-dark">Curated Rental Picks</h4>
+          <div className="d-flex flex-wrap justify-content-center gap-3 mt-3">
+            <button className="btn btn-outline-secondary px-4 py-2">
+              🏡 Explore premium rental properties
+            </button>
+            <button className="btn btn-outline-secondary px-4 py-2">
+              🌿 Affordable and luxury options
             </button>
           </div>
         </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="services-section py-5">
-        <div className="container text-center">
-          <h2 className="fw-bold mb-4">Why Choose Us?</h2>
-          <div className="row g-4">
-            <div className="col-md-4">
-              <div className="card shadow h-100">
-                <div className="card-body">
-                  <FaBuilding className="display-4 text-primary mb-3" />
-                  <h4 className="fw-bold">Wide Range of Listings</h4>
-                  <p>Choose from a variety of verified properties.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card shadow h-100">
-                <div className="card-body">
-                  <FaUsers className="display-4 text-success mb-3" />
-                  <h4 className="fw-bold">Trusted by Thousands</h4>
-                  <p>Join a community of happy homeowners.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card shadow h-100">
-                <div className="card-body">
-                  <FaHandshake className="display-4 text-danger mb-3" />
-                  <h4 className="fw-bold">Hassle-Free Process</h4>
-                  <p>Simplified buying and renting experience.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call-to-Action */}
-      <section className="cta-section py-5 bg-dark text-white text-center">
-        <div className="container">
-          <h2 className="fw-bold">Start Your Search Today!</h2>
-          <p className="lead">Discover homes that match your lifestyle.</p>
-          <button className="btn btn-warning btn-lg mt-3">
-            Get Started <FaArrowRight className="ms-2" />
-          </button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="footer text-center py-3 bg-light">
-        <div className="container">
-          <p className="mb-0">&copy; 2025 PropertyFinder. All rights reserved.</p>
-        </div>
-      </footer>
-    </>
+      </div>
+    </div>
   );
 };
 
-export default Home;
+export default HomePage;
+
+
