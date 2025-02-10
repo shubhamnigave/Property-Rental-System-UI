@@ -11,10 +11,17 @@ function FeedbackReports() {
       .catch(error => console.error("Error fetching feedbacks:", error));
   }, []);
 
+
+  const handleDownload = () => {
+    // Adjust the URL if your backend is running on a different host/port
+    window.open('http://localhost:8081/bookings/report', '_blank');
+  };
+  
+
   return (
     <div>
-      <h3>Feedback & Reports</h3>
-      <h5>Tenant Feedback</h5>
+      <h3>Reports</h3>
+      {/* <h5>Tenant Feedback</h5>
       <table className="table table-bordered">
         <thead>
           <tr>
@@ -32,11 +39,13 @@ function FeedbackReports() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
 
       <h5 className="mt-3">Generate Reports</h5>
-      <button className="btn btn-primary">Generate Booking Report</button>
-      <button className="btn btn-primary">Generate Revenue Report</button>
+      <div style={{display:'flex',gap:20}}>
+        <button onClick={handleDownload} className="btn btn-primary">Generate Booking Report</button>
+        <button className="btn btn-primary">Generate Revenue Report</button>
+      </div>
     </div>
   );
 }

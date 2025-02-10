@@ -1,215 +1,173 @@
-/* .add-property-container {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
-  .add-property-container h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .property-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-    color: #555;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: #aaa;
-  }
-  
-  .form-group textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  
-  .submit-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #45a049;
-  }
-  
-  @media (max-width: 768px) {
-    .add-property-container {
-      width: 90%;
-      margin: 20px auto;
-    }
-  }
-   */
-   /* AddProperty.css */
+/* General Page Background */
+body { 
+  font-family: Arial, sans-serif;
+}
 
-/* Base styles for the container */
+
+.background-container{
+  background: linear-gradient(135deg, #264c8e, #007bff);
+  padding: 40px;
+}
+/* General Container Styling */
 .add-property-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 650px;
+  margin:  auto;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  position: relative;
 }
 
-.add-property-container h2 {
+.add-property-container:hover {
+  transform: scale(1.02);
+}
+
+h2 {
   text-align: center;
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
+  color: #0047ab;
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Form styling */
+/* Form Styling */
 .property-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
-.property-form input,
-.property-form textarea,
-.property-form select {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
+input, textarea, select {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #504f4f;
+  border-radius: 10px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease-in-out;
 }
 
-.property-form input:focus,
-.property-form textarea:focus,
-.property-form select:focus {
-  border-color: #007bff;
+input:focus, textarea:focus, select:focus {
+  border-color: #1e90ff;
   outline: none;
+  box-shadow: 0px 0px 10px rgba(30, 144, 255, 0.3);
 }
 
-.property-form textarea {
+textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 120px;
 }
 
-/* Amenities section */
+label {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0047ab;
+}
+
+/* Amenities Section */
 .amenities-checkboxes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 12px;
-  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .amenity-checkbox {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  font-size: 16px;
+  color: #0047ab;
 }
 
 .amenity-checkbox input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: #007bff;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #1e90ff;
+  border-radius: 5px;
+  background: white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative;
 }
 
-.amenity-checkbox label {
+.amenity-checkbox input[type="checkbox"]:checked {
+  background: linear-gradient(to right, #1e90ff, #0073e6);
+  border-color: #0073e6;
+}
+
+.amenity-checkbox input[type="checkbox"]:checked::after {
+  content: '\2713';
   font-size: 14px;
-  color: #333;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Add new amenity section */
+.amenity-checkbox input[type="checkbox"]:hover {
+  transform: scale(1.1);
+}
+
 .amenity-add {
   display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 14px;
 }
 
 .amenity-add input {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid #ddd;
+  flex-grow: 1;
   border-radius: 8px;
-  font-size: 14px;
+  padding: 12px;
 }
 
 .amenity-add button {
-  padding: 12px 16px;
-  background-color: #007bff;
-  color: #fff;
+  background: linear-gradient(to right, #ff6b81, #ff4757);
+  color: white;
   border: none;
+  padding: 12px 18px;
   border-radius: 8px;
-  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .amenity-add button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(to right, #ff4757, #e84118);
+  transform: scale(1.05);
 }
 
-/* File upload styling */
-.property-form input[type="file"] {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  background-color: #fff;
-}
-
-/* Submit button */
-.submit-btn {
-  padding: 12px 16px;
-  background-color: #28a745;
-  color: #fff;
+/* File Upload */
+input[type="file"] {
+  padding: 8px;
   border: none;
+  background: rgba(233, 236, 239, 0.8);
   border-radius: 8px;
-  font-size: 16px;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: linear-gradient(to right, #1e90ff, #0073e6);
+  color: white;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .submit-btn:hover {
-  background-color: #218838;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .amenities-checkboxes {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-
-  .amenity-add {
-    flex-direction: column;
-  }
-
-  .amenity-add button {
-    width: 100%;
-  }
+  background: linear-gradient(to right, #0073e6, #1e90ff);
+  transform: scale(1.08);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }

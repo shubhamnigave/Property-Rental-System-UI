@@ -13,8 +13,11 @@ const PropertiesList = () => {
   const [filteredProperties, setFilteredProperties] = useState([]);
   const [filterPane, setfilterPane] = useState(false);
   // const [propertiesg, setPropertiesg] = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const searchText = location.state;
   const [filters, setFilters] = useState({
-    city: "",
+    city: searchText?searchText:"",
     minRent: "",
     maxRent: "",
     available: "", // "true" or "false"
@@ -23,9 +26,6 @@ const PropertiesList = () => {
   });
 
   const token = localStorage.getItem("jwtToken");
-  const navigate = useNavigate();
-  const location = useLocation();
-
   // Function to delete a property
   const deleteProperty = async (id) => {
     try {
@@ -52,7 +52,7 @@ const PropertiesList = () => {
     if (filters.amenities.length > 0) url += `amenities=${filters.amenities.join(",")}&`;
 
     try {
-      const response = await axios.get(url, { headers: { Authorization: `Bearer ${token}` } });
+      const response = await axios.get(url);
       if (response.status === 200) {
         setProperties(response.data);
         // setPropertiesg(response.data);

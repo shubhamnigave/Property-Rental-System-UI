@@ -15,8 +15,8 @@ const token = localStorage.getItem('jwtToken');
     }catch(error){
         console.log(error);
     }   
-    
   }
+
   useEffect(() => {
    fetchBookings(); 
     // fetch(`http://localhost:8081/bookings`)
@@ -52,6 +52,7 @@ const token = localStorage.getItem('jwtToken');
           ))}
         </tbody>
       </table>
+      {/* <button onClick={handleDownload} className="btn btn-info btn-sm">Download Report</button> */}
     </div>
   );
 }

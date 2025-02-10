@@ -108,6 +108,7 @@ function UserManagement() {
   return (
     <div className="user-management card p-4">
       <h3 className="mb-4">User Management</h3>
+      {/* <button className="btn btn-primary">Add New Admin</button> */}
       <table className="table table-hover table-bordered">
         <thead className="table-light">
           <tr>

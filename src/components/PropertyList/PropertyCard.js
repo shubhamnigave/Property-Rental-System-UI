@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -11,6 +11,7 @@ import axios from "axios";
 const PropertyCard = ({ property, deleteProperty }) => {
   // const property = props.property;
   // const deleteProperty = props.deleteProperty;
+  
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -20,6 +21,9 @@ const PropertyCard = ({ property, deleteProperty }) => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
+
+
+
   const {isLogin,setIsLogin} = useAuth();
   const url = `/property/${property.id}`;
   const token = localStorage.getItem("jwtToken");
